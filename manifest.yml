@@ -1,0 +1,7 @@
+applications:
+- path: .
+  name: teste-cio
+  command: npm start
+  memory: 512M
+  instances: 1
+  disk_quota: 1024M

@@ -2,6 +2,23 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheet/data.css">
+    <script
+			  src="https://code.jquery.com/jquery-3.3.1.js"
+			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			  crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function(){
+        var numberPage = parseInt($('#numb').text(), 10);
+        var numberPageTwo = numberPage + 1;
+        var numberPageThree = numberPage - 1;
+        if(numberPage == 1){
+          $('#nextArr').attr("style", "display: none");
+        }
+        $('#previousArr').attr("href", "/db/" + numberPageTwo);
+        $('#nextArr').attr("href", "/db/" + numberPageThree);
+      })
+    </script>
     <meta charset="utf-8">
     <title><%= title %></title>
   </head>
@@ -12,19 +29,20 @@
       <th scope="col">#</th>
       <th scope="col">URL</th>
     </tr>
-
+    <div id="numb" style="display:none"><%=pager%></div>
   </thead>
   <tbody>
     <% for(var i=0; i < 25 ; i++) {%>
     <tr>
-      <th scope="row"><%= Number(i) + Number(number)%></th>
+      <th scope="row"><%= Number(i) + Number(number) + 1%></th>
       <td><%= list[i].link %></td>
     </tr>
     <% } %>
-    <div class="arrows prev"></div>
-    <div class="arrows next"></div>
   </tbody>
 </table>
-
+<div>
+   <a  id="nextArr"><p class="text-left">Página anterior<i class="arrow left"></i></p></a>
+   <a id="previousArr"><p class="text-right">Próxima página<i class="arrow right"></i></p></a>
+</div>
   </body>
 </html>

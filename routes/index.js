@@ -18,9 +18,9 @@ router.get('/db/:id', function(req, res, next) {
       list.push(docs[countAux]);
     }
     if(num == 1){
-      res.render('data', {list: list, number: num, title : 'Banco de dados'});
+      res.render('data', {list: list, number: num - 1, title : 'Banco de dados', pager: num});
     }else{
-      res.render('data', {list: list, number: (num - 1) * 25});
+      res.render('data', {list: list, number: (num - 1) * 25, title: 'Banco de dados', pager: num});
     }
   })
 })
