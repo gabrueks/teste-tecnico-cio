@@ -4,7 +4,7 @@ var router = require('./routes/index')
 var supertest = require('supertest');
 
 test('Save to DB and crawl', (t) =>{
-  t.assert(code.crawling('https://google.com.br') === 'saved!', "Correto.")
+  t.assert(code.crawling('https://google.com.br') === true, "Correto.")
 })
 
 test('GET /', (t) => {

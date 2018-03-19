@@ -35,9 +35,13 @@
     <% for(var i=0; i < 25 ; i++) {%>
     <tr>
       <th scope="row"><%= Number(i) + Number(number) + 1%></th>
+      <% if(list[i] != undefined){ %>
       <td><%= list[i].link %></td>
-    </tr>
+      <% }else{ %>
+        <td>Nada aqui</td>
+      <% } %>
     <% } %>
+    </tr>
   </tbody>
 </table>
 <div>
